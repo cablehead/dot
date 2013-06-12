@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/andy/git/Simperium/simperium-aws/cuukbuuks/riak1oh.pre'
-let g:netrw_dirhist_2='/Users/andy/git/Simperium/simperium.com'
-let g:netrw_dirhist_3='/Users/andy/git/Simperium/simperium.com/stargate'
-let g:netrw_dirhist_4='/Users/andy/git/Simperium/simperium.com/stargate/web'
-let g:netrw_dirhist_5='/Users/andy/mongo'
