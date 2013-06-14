@@ -41,11 +41,11 @@ autocmd BufRead,BufNewFile *.tac setf python
 autocmd BufEnter * match
 " match lines greater than 80 chars: /\%>80v.\+/
 " match tabs: /^[[:tab:]]\+/
-autocmd BufEnter *.go,*.py,*.php,*.tac  match Error /\%>80v.\+\|^[[:tab:]]\+/
+autocmd BufEnter *.py,*.php,*.tac  match Error /\%>80v.\+\|^[[:tab:]]\+/
 
-set tabstop=4
-set shiftwidth=4
-set expandtab
+autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType go set tabstop=4|set shiftwidth=4|set noexpandtab
+
 set autoindent
 
 " strip tabs and trailing whitespace on save
