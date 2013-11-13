@@ -16,8 +16,6 @@ set completeopt=menu
 
 set statusline=%<%f\ [%{&ff}]%y%m%r%=%-14.(%l,%c%)\ %P
 
-" simplenote
-source ~/.simplenote
 
 " colorscheme ps_color
 colorscheme ir_black
