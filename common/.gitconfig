@@ -1,0 +1,11 @@
+[user]
+	name = Andy Gayton
+	email = andy@thecablelounge.com
+[core]
+	quotepath = false
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  ui = true
