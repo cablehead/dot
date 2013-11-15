@@ -1,7 +1,7 @@
 set -o vi
 
 export TERM=xterm-256color
-eval `dircolors ~/git/dot/common/dircolors.256dark`
+# eval `dircolors ~/git/dot/common/dircolors.ansi-dark`
 
 alias ls="ls --color"
 alias less="less -R"
