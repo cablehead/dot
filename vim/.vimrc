@@ -18,11 +18,11 @@ set statusline=%<%f\ [%{&ff}]%y%m%r%=%-14.(%l,%c%)\ %P
 
 
 " colorscheme ps_color
-colorscheme ir_black
-highlight Pmenu ctermbg=blue ctermfg=white
-highlight Pmenusel ctermbg=green ctermfg=white
-highlight Comment ctermfg=cyan
-highlight String ctermfg=green
+colorscheme solarized
+"highlight Pmenu ctermbg=blue ctermfg=white
+"highlight Pmenusel ctermbg=green ctermfg=white
+"highlight Comment ctermfg=cyan
+"highlight String ctermfg=green
 
 nnoremap <C-l> :bnext<CR>
 nnoremap <C-h> :bprevious<CR>
