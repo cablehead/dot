@@ -5,6 +5,8 @@
 - i3wm
 - tmux
 
+- feh
+
 addons
 ------
 
