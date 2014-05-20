@@ -35,10 +35,9 @@ colorscheme solarized
 " highlight Comment ctermfg=cyan
 " highlight String ctermfg=green
 
-nnoremap <C-l> :bnext<CR>
-nnoremap <C-h> :bprevious<CR>
-nnoremap <C-j> :tabnext<CR>
-nnoremap <C-k> :tabprevious<CR>
+nnoremap <Esc>j :bnext<CR>
+nnoremap <Esc>k :bprevious<CR>
+nnoremap <Esc>l :tabnext<CR>
 
 vnoremap < <gv
 vnoremap > >gv
