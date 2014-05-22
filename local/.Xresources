@@ -1,7 +1,6 @@
 
-
-URxvt.font: xft:Source Code Pro:size=10
-URxvt.letterSpace: 0
+URxvt.font: xft:Source Code Pro:Medium:size=10
+URxvt.letterSpace: -1
 URxvt.intensityStyles: false
 URxvt.cursorBlink: 1
 
@@ -55,7 +54,7 @@ URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 *background:              S_base03
 *foreground:              S_base0
-*fading:                  40
+*fading:                  0
 *fadeColor:               S_base03
 *cursorColor:             S_base1
 *pointerColorBackground:  S_base01
