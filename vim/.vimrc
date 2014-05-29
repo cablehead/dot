@@ -40,6 +40,9 @@ nnoremap <C-p> :bprevious<CR>
 nnoremap <Esc>n :tabnext<CR>
 nnoremap <Esc>p :tabprevious<CR>
 
+vnoremap  :w !runsnippet<CR>
+nnoremap  ?```<CR>jjv/```<CR>k$:w !runsnippet<CR>
+
 vnoremap < <gv
 vnoremap > >gv
 
@@ -91,3 +94,8 @@ else
   map <C-k> <C-w>k
   map <C-l> <C-w>l
 endif
+
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
