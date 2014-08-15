@@ -2,6 +2,7 @@ so ${VIMRUNTIME}/syntax/syntax.vim
 
 set wildmode=longest,list
 set incsearch
+set noswapfile
 
 " allow switching of unsaved buffers
 set hidden
@@ -57,6 +58,8 @@ autocmd BufEnter *.py,*.php,*.tac  match Error /\%>80v.\+\|^[[:tab:]]\+/
 
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType go set tabstop=4|set shiftwidth=4|set noexpandtab
+autocmd FileType html set tabstop=2|set shiftwidth=2|set noexpandtab
+autocmd FileType lua set tabstop=2|set shiftwidth=2|set noexpandtab
 autocmd BufWritePre *.go Fmt
 
 set autoindent
