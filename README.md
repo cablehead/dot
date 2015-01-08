@@ -18,6 +18,10 @@
 
 - feh
 
+```
+    apt-get install lightdm i3
+```
+
 ### addons
 
 - https://github.com/sos4nt/dynamic-colors
