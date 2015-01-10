@@ -23,8 +23,8 @@ set statusline=%<%f\ [%{&ff}]%y%m%r%=%-14.(%l,%c%)\ %P
 
 syntax enable
 
-let g:solarized_termtrans = 1
-colorscheme solarized
+" let g:solarized_termtrans = 1
+" colorscheme solarized
 
 " colorscheme kolor
 
