@@ -23,18 +23,10 @@ set statusline=%<%f\ [%{&ff}]%y%m%r%=%-14.(%l,%c%)\ %P
 
 syntax enable
 
-" let g:solarized_termtrans = 1
-" colorscheme solarized
-
-" colorscheme kolor
-
-" colorscheme desertEx
-" colorscheme ps_color
-
-" highlight Pmenu ctermbg=blue ctermfg=white
-" highlight Pmenusel ctermbg=green ctermfg=white
-" highlight Comment ctermfg=cyan
-" highlight String ctermfg=green
+hightlight StatusLine ctermfg=0 ctermbg=4
+hightlight StatusLineNC ctermfg=0 ctermbg=7
+hightlight VertSplit cterm=none
+hightlight ErrorMsg ctermfg=7 ctermbg=6
 
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
