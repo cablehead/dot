@@ -3,9 +3,13 @@ so ${VIMRUNTIME}/syntax/syntax.vim
 set wildmode=longest,list
 set incsearch
 set noswapfile
+set autoindent
 
 " allow switching of unsaved buffers
 set hidden
+
+" always show status bar
+set laststatus=2
 
 set tags=~/go/project/src/tags
 
@@ -23,26 +27,16 @@ set statusline=%<%f\ [%{&ff}]%y%m%r%=%-14.(%l,%c%)\ %P
 
 syntax enable
 
-let g:solarized_termtrans = 1
-colorscheme solarized
-
-" colorscheme kolor
-
-" colorscheme desertEx
-" colorscheme ps_color
-
-" highlight Pmenu ctermbg=blue ctermfg=white
-" highlight Pmenusel ctermbg=green ctermfg=white
-" highlight Comment ctermfg=cyan
-" highlight String ctermfg=green
+highlight StatusLine cterm=none ctermfg=black ctermbg=lightblue
+highlight StatusLineNC cterm=none ctermfg=black ctermbg=white
+highlight VertSplit cterm=none
+highlight ErrorMsg ctermfg=gray ctermbg=cyan
+highlight Error ctermfg=gray ctermbg=cyan
 
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
 nnoremap <Esc>n :tabnext<CR>
 nnoremap <Esc>p :tabprevious<CR>
-
-vnoremap  :w !runsnippet<CR>
-nnoremap  ?```<CR>jjv/```<CR>k$:w !runsnippet<CR>
 
 vnoremap < <gv
 vnoremap > >gv
@@ -50,19 +44,23 @@ vnoremap > >gv
 filetype plugin on
 autocmd BufRead,BufNewFile *.tac setf python
 
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
+
+autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType go set tabstop=4|set shiftwidth=4|set noexpandtab
+autocmd FileType ghmarkdown set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType html set tabstop=2|set shiftwidth=2|set noexpandtab
+autocmd FileType lua set tabstop=2|set shiftwidth=2|set noexpandtab
+autocmd BufWritePre *.go Fmt
+
 " clear all matches
 autocmd BufEnter * match
 " match lines greater than 80 chars: /\%>80v.\+/
 " match tabs: /^[[:tab:]]\+/
 autocmd BufEnter *.py,*.php,*.tac  match Error /\%>80v.\+\|^[[:tab:]]\+/
-
-autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
-autocmd FileType go set tabstop=4|set shiftwidth=4|set noexpandtab
-autocmd FileType html set tabstop=2|set shiftwidth=2|set noexpandtab
-autocmd FileType lua set tabstop=2|set shiftwidth=2|set noexpandtab
-autocmd BufWritePre *.go Fmt
-
-set autoindent
 
 " strip tabs and trailing whitespace on save
 " autocmd BufWritePre *.py,*.php retab
@@ -97,8 +95,3 @@ else
   map <C-k> <C-w>k
   map <C-l> <C-w>l
 endif
-
-augroup markdown
-    au!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
