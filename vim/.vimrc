@@ -27,7 +27,7 @@ set statusline=%<%f\ [%{&ff}]%y%m%r%=%-14.(%l,%c%)\ %P
 
 syntax enable
 
-highlight StatusLine cterm=none ctermfg=black ctermbg=lightblue
+highlight StatusLine cterm=none ctermfg=15 ctermbg=lightblue
 highlight StatusLineNC cterm=none ctermfg=black ctermbg=white
 highlight VertSplit cterm=none
 highlight ErrorMsg ctermfg=gray ctermbg=cyan
