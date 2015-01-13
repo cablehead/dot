@@ -27,11 +27,11 @@ set statusline=%<%f\ [%{&ff}]%y%m%r%=%-14.(%l,%c%)\ %P
 
 syntax enable
 
-highlight StatusLine cterm=none ctermfg=15 ctermbg=lightblue
+highlight StatusLine cterm=none ctermfg=black ctermbg=lightblue
 highlight StatusLineNC cterm=none ctermfg=black ctermbg=white
 highlight VertSplit cterm=none
-highlight ErrorMsg ctermfg=gray ctermbg=cyan
-highlight Error ctermfg=gray ctermbg=cyan
+highlight ErrorMsg ctermfg=black ctermbg=cyan
+highlight Error ctermfg=black ctermbg=cyan
 
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
