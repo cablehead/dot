@@ -58,6 +58,7 @@ autocmd BufEnter *.py,*.php,*.tac  match Error /\%>80v.\+\|^[[:tab:]]\+/
 
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType go set tabstop=4|set shiftwidth=4|set noexpandtab
+autocmd FileType nginx set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType html set tabstop=2|set shiftwidth=2|set noexpandtab
 autocmd FileType lua set tabstop=2|set shiftwidth=2|set noexpandtab
 autocmd BufWritePre *.go Fmt
@@ -100,5 +101,5 @@ endif
 
 augroup markdown
     au!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown|setlocal spell spelllang=en_us
 augroup END
