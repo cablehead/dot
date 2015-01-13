@@ -4,7 +4,7 @@ export TERM=xterm-256color
 
 eval `dircolors ~/git/dot/common/dircolors.ansi-dark`
 
-export PATH=/usr/bin:/bin:/usr/local/bin
+export PATH=/usr/bin:/bin:/usr/local/bin:/sbin
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/.dynamic-colors/bin
 
