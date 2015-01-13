@@ -11,6 +11,8 @@ set hidden
 " always show status bar
 set laststatus=2
 
+set modeline
+
 set tags=~/go/project/src/tags
 
 " don't include tags in basic completion
@@ -21,9 +23,15 @@ set tags=~/go/project/src/tags
 
 set omnifunc=syntaxcomplete#Complete
 
-" setlocal spell spelllang=en_us
-
-set statusline=%<%f\ [%{&ff}]%y%m%r%=%-14.(%l,%c%)\ %P
+set statusline=%<%f                            " path to file
+set statusline+=\ [%{&ff}]                     " space + fileformat
+set statusline+=%y                             " filetype
+set statusline+=%{&expandtab?'[spc]':'[TAB]'}  " is expandtab set?
+set statusline+=%m                             " modified status
+set statusline+=%r                             " read only flag
+set statusline+=%=                             " switch to the right side
+set statusline+=%-14.(%l,%c%)                  " current line,col
+set statusline+=\ %L                           " total number of lines
 
 syntax enable
 
@@ -62,7 +70,7 @@ autocmd BufWritePre *.go Fmt
 autocmd BufEnter * match
 " match lines greater than 80 chars: /\%>80v.\+/
 " match tabs: /^[[:tab:]]\+/
-autocmd BufEnter *.py,*.php,*.tac  match Error /\%>80v.\+\|^[[:tab:]]\+/
+" autocmd BufEnter *.py,*.php,*.tac  match Error /\%>80v.\+\|^[[:tab:]]\+/
 
 " strip tabs and trailing whitespace on save
 " autocmd BufWritePre *.py,*.php retab
