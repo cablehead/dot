@@ -1,12 +1,26 @@
 ### linux
 
 - debian sid
+
+    sources:
+
+        deb http://ftp.us.debian.org/debian/ unstable main contrib non-free
+
+    sudoers:
+
+        # Allow members of group sudo to execute any command
+        %sudo	ALL=NOPASSWD: ALL
+
 - lightdm
 - urxvt
 - i3wm
 - tmux
 
 - feh
+
+```
+    apt-get install lightdm i3
+```
 
 ### addons
 
