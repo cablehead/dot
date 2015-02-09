@@ -41,10 +41,8 @@ highlight VertSplit cterm=none
 highlight ErrorMsg ctermfg=black ctermbg=cyan
 highlight Error ctermfg=black ctermbg=cyan
 
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>
-nnoremap <Esc>n :tabnext<CR>
-nnoremap <Esc>p :tabprevious<CR>
+nnoremap <C-n> :tabnext<CR>
+nnoremap <C-p> :tabprevious<CR>
 
 vnoremap < <gv
 vnoremap > >gv
