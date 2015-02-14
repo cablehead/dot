@@ -1,0 +1,12 @@
+set -o vi
+
+eval `dircolors ~/git/dot/common/dircolors.ansi-dark`
+
+export PATH=/usr/bin:/bin:/usr/local/bin:/sbin
+export PATH=$PATH:~/bin
+
+export VISUAL=$(which vim)
+
+alias ls="ls --color"
+alias less="less -R"
+alias ack="ack-grep"
