@@ -8,6 +8,9 @@
 [push]
     default = simple
 
+[branch "master"]
+    rebase = true
+
 [color]
     ui = 1
 
