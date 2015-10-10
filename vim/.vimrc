@@ -12,6 +12,7 @@ set hidden
 set laststatus=2
 
 set modeline
+set modelines=5
 
 set tags=~/go/project/src/tags
 
