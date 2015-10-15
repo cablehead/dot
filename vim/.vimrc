@@ -14,14 +14,6 @@ set laststatus=2
 set modeline
 set modelines=5
 
-set tags=~/go/project/src/tags
-
-" don't include tags in basic completion
-" set complete-=t
-"
-" don't show a preview when doing omni completion
-" set completeopt=menu
-
 set omnifunc=syntaxcomplete#Complete
 
 set statusline=%<%f                            " path to file
@@ -44,6 +36,8 @@ highlight Error ctermfg=black ctermbg=cyan
 
 nnoremap <C-n> :tabnext<CR>
 nnoremap <C-p> :tabprevious<CR>
+
+nnoremap <C-e> ?###<CR>jV/###<CR>k::w !python<CR>
 
 vnoremap < <gv
 vnoremap > >gv
