@@ -113,3 +113,11 @@ function! s:ZoomToggle() abort
 endfunction
 command! ZoomToggle call s:ZoomToggle()
 nnoremap <C-w>o :ZoomToggle<CR>
+
+" http://ricostacruz.com/til/repeat-tmux-from-vim.html
+" run up enter in the last tmux pane used
+function! s:TmuxRepeat()
+  silent! exec "!tmux select-pane -l && tmux send up enter && tmux select-pane -l"
+  redraw!
+endfunction
+noremap  <C-i> :w<CR>:call <SID>TmuxRepeat()<CR>
