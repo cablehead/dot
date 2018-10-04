@@ -1,0 +1,23 @@
+[buildPlans.iosevka-X]
+family = "Iosevka X"
+design = [
+	"cv04", "cv08", "v-zero-dotted", "v-asterisk-low", "v-tilde-low",
+	"v-underscore-low", "v-brace-straight", "v-dollar-open", "v-at-long", "type",
+	"termlig"]
+
+[buildPlans.iosevka-X.weights.regular]
+shape = 400
+css   = 400 
+
+[buildPlans.iosevka-X.weights.light]
+shape = 300
+css   = 300
+
+[buildPlans.iosevka-X.weights.extralight]
+shape = 200
+css   = 200
+
+[buildPlans.iosevka-X.slants]
+upright = "normal"
+
+
