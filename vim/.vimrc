@@ -37,6 +37,14 @@ highlight Error ctermfg=black ctermbg=cyan
 nnoremap <C-n> :tabnext<CR>
 nnoremap <C-p> :tabprevious<CR>
 
+function! GoFMT()
+    let view = winsaveview()
+    exe '%!gofmt -s'
+    call winrestview(view)
+endfunction
+
+nnoremap <leader>G :call GoFMT()<CR>
+
 nnoremap <C-e> ?###<CR>jV/###<CR>k::w !python<CR>
 
 vnoremap < <gv
@@ -56,7 +64,7 @@ autocmd FileType nginx set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType ghmarkdown set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType html set tabstop=2|set shiftwidth=2|set noexpandtab
 autocmd FileType lua set tabstop=2|set shiftwidth=2|set noexpandtab
-autocmd BufWritePre *.go Fmt
+" autocmd BufWritePre *.go Fmt
 
 
 " clear all matches
