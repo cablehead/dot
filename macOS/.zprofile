@@ -17,3 +17,5 @@ export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 
 alias jq='jq --unbuffered'
 alias grep='grep --line-buffered'
+
+zle_highlight+=(paste:none)
