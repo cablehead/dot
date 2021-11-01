@@ -26,6 +26,23 @@ set statusline+=%=                             " switch to the right side
 set statusline+=%-14.(%l,%c%)                  " current line,col
 set statusline+=\ %L                           " total number of lines
 
+" Go specific
+" https://dev.to/jogendra/using-vim-for-go-development-5hc6
+" Go syntax highlighting
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+
+" Auto formatting and importing
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+" au filetype go inoremap <buffer> . .<C-x><C-o>
+" end Go
+
+let g:rustfmt_autosave = 1
+
 syntax enable
 
 highlight StatusLine cterm=none ctermfg=black ctermbg=lightblue
@@ -43,7 +60,7 @@ function! GoFMT()
     call winrestview(view)
 endfunction
 
-nnoremap <leader>G :call GoFMT()<CR>
+" nnoremap <leader>G :call GoFMT()<CR>
 
 nnoremap <C-e> ?###<CR>jV/###<CR>k::w !python<CR>
 
@@ -52,11 +69,6 @@ vnoremap > >gv
 
 filetype plugin on
 autocmd BufRead,BufNewFile *.tac setf python
-
-augroup markdown
-    au!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown|setlocal spell spelllang=en_us
-augroup END
 
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType go set tabstop=4|set shiftwidth=4|set noexpandtab
