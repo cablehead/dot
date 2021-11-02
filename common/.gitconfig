@@ -26,3 +26,7 @@
     added = yellow
     changed = green
     untracked = cyan
+[init]
+	defaultBranch = main
+[pull]
+	ff = only
