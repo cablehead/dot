@@ -447,28 +447,34 @@ vim.api.nvim_set_keymap("n", " .f", [[<cmd>w<CR><cmd>Format<CR>]], {})
 vim.api.nvim_set_keymap("n", " .F", [[<cmd>w<CR><cmd>FormatWrite<CR>]], {})
 
 vim.cmd([[
-	set mouse=
-	set laststatus=0
+set mouse=
+set laststatus=0
 
-	highlight VertSplit cterm=none
-	set nohlsearch
+highlight VertSplit cterm=none
+set nohlsearch
 
-	nnoremap <silent> <C-h> :lua require('tmux').move_left()<CR>
-	nnoremap <silent> <C-l> :lua require('tmux').move_right()<CR>
-	nnoremap <silent> <C-j> :lua require('tmux').move_down()<CR>
-	nnoremap <silent> <C-k> :lua require('tmux').move_up()<CR>
+nnoremap <silent> <C-h> :lua require('tmux').move_left()<CR>
+nnoremap <silent> <C-l> :lua require('tmux').move_right()<CR>
+nnoremap <silent> <C-j> :lua require('tmux').move_down()<CR>
+nnoremap <silent> <C-k> :lua require('tmux').move_up()<CR>
 
+set statusline=%<%f                            " path to file
+set statusline+=\ [%{&ff}]                     " space + fileformat
+set statusline+=%y                             " filetype
+set statusline+=%{&expandtab?'[spc]':'[TAB]'}  " is expandtab set?
+set statusline+=%m                             " modified status
+set statusline+=%r                             " read only flag
+set statusline+=%=                             " switch to the right side
+set statusline+=%-14.(%l,%c%)                  " current line,col
+set statusline+=\ %L                           " total number of lines
 
-	set statusline=%<%f                            " path to file
-	set statusline+=\ [%{&ff}]                     " space + fileformat
-	set statusline+=%y                             " filetype
-	set statusline+=%{&expandtab?'[spc]':'[TAB]'}  " is expandtab set?
-	set statusline+=%m                             " modified status
-	set statusline+=%r                             " read only flag
-	set statusline+=%=                             " switch to the right side
-	set statusline+=%-14.(%l,%c%)                  " current line,col
-	set statusline+=\ %L                           " total number of lines
-	]])
+" http://ricostacruz.com/til/repeat-tmux-from-vim.html
+" run up enter in the last tmux pane used
+function! s:TmuxRepeat()
+    let x = system("tmux select-pane -l && tmux send up enter && tmux select-pane -l")
+endfunction
+noremap  <C-i> :w<CR>:call <SID>TmuxRepeat()<CR>
+]])
 
 local reload = require('nvim-reload')
 
