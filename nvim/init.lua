@@ -387,9 +387,6 @@ require("fzf-lua").setup({
     file_icon_colors = { ["lua"] = "blue" },
 })
 
--- (Optional) easy way to get Neovim current size.
-local ui = vim.api.nvim_list_uis()[1]
-
 vim.api.nvim_set_keymap("", "<M-p>", [[<cmd>PackerSync<CR>]], {})
 
 vim.api.nvim_set_keymap("n", " ff", [[<cmd>lua require('fzf-lua').files()<CR>]], {})
