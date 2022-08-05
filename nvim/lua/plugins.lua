@@ -10,6 +10,6 @@ return require('packer').startup(function()
   use {'ibhagwan/fzf-lua', requires = {'vijaymarupudi/nvim-fzf'}}
 
   use {'bfredl/nvim-luadev'}
-  use {'lukas-reineke/format.nvim'}
 
+  use {'mhartington/formatter.nvim'}
 end)

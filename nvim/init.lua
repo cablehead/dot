@@ -381,47 +381,24 @@ require'fzf-lua'.setup {
   file_icon_colors = {["lua"] = "blue"}
 }
 
-require"format".setup {
-  ["*"] = {
-    {cmd = {"sed -i 's/[ \t]*$//'"}} -- remove trailing whitespace
-  },
-  vim = {
-    {
-      cmd = {"luafmt -w replace"},
-      start_pattern = "^lua << EOF$",
-      end_pattern = "^EOF$"
-    }
-  },
-  vimwiki = {
-    {
-      cmd = {"prettier -w --parser babel"},
-      start_pattern = "^{{{javascript$",
-      end_pattern = "^}}}$"
-    }
-  },
+
+local util = require "formatter.util"
+require("formatter").setup {
+	filetype = {
   lua = {
-    {
-      cmd = {
-        function(file)
-          return string.format([[lua-format --indent-width=2 %s | sponge %s]],
-                               file, file)
-        end
-      }
-    }
+      -- "formatter.filetypes.lua" defines default configurations for the
+      -- "lua" filetype
+      require("formatter.filetypes.lua").stylua,
   },
-  html = {{cmd = {"tidy -quiet --tidy-mark no -modify -indent"}}},
-  rust = {{cmd = {"rustfmt"}}},
-  go = {{cmd = {"gofmt -w", "goimports -w"}, tempfile_postfix = ".tmp"}},
-  javascript = {{cmd = {"prettier -w", "./node_modules/.bin/eslint --fix"}}},
-  markdown = {
-    {cmd = {"prettier -w"}}, {
-      cmd = {"black"},
-      start_pattern = "^```python$",
-      end_pattern = "^```$",
-      target = "current"
-    }
+  -- html = {{cmd = {"tidy -quiet --tidy-mark no -modify -indent"}}},
+  -- rust = {{cmd = {"rustfmt"}}},
+  -- go = {{cmd = {"gofmt -w", "goimports -w"}, tempfile_postfix = ".tmp"}},
+  -- javascript = {{cmd = {"prettier -w", "./node_modules/.bin/eslint --fix"}}},
+  -- ["*"] = {
+    -- {cmd = {"sed -i 's/[ \t]*$//'"}} -- remove trailing whitespace
+  -- },
   }
-}
+  }
 
 -- (Optional) easy way to get Neovim current size.
 local ui = vim.api.nvim_list_uis()[1]
