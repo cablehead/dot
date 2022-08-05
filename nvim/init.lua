@@ -408,9 +408,18 @@ require("formatter").setup({
         -- rust = {{cmd = {"rustfmt"}}},
         -- go = {{cmd = {"gofmt -w", "goimports -w"}, tempfile_postfix = ".tmp"}},
         -- javascript = {{cmd = {"prettier -w", "./node_modules/.bin/eslint --fix"}}},
-        -- ["*"] = {
-        -- {cmd = {"sed -i 's/[ \t]*$//'"}} -- remove trailing whitespace
-        -- },
+        ["*"] = {
+            function()
+                -- remove trailing whitespace
+                return {
+                    exe = "sed",
+                    args = {
+                        "'s/[ \t]*$//'",
+                    },
+                    stdin = true,
+                }
+            end,
+        },
     },
 })
 
