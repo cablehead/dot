@@ -404,10 +404,17 @@ require("formatter").setup({
                 }
             end,
         },
-        -- html = {{cmd = {"tidy -quiet --tidy-mark no -modify -indent"}}},
-        -- rust = {{cmd = {"rustfmt"}}},
+        rust = {
+            function()
+                return {
+                    exe = "rustfmt",
+                    stdin = true,
+                }
+            end,
+        },
         -- go = {{cmd = {"gofmt -w", "goimports -w"}, tempfile_postfix = ".tmp"}},
         -- javascript = {{cmd = {"prettier -w", "./node_modules/.bin/eslint --fix"}}},
+        -- html = {{cmd = {"tidy -quiet --tidy-mark no -modify -indent"}}},
         ["*"] = {
             function()
                 -- remove trailing whitespace
