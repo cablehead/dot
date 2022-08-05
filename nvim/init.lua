@@ -410,7 +410,7 @@ require"format".setup {
     }
   },
   html = {{cmd = {"tidy -quiet --tidy-mark no -modify -indent"}}},
-  rust = {{cmd = {"rustfmt --force"}}},
+  rust = {{cmd = {"rustfmt"}}},
   go = {{cmd = {"gofmt -w", "goimports -w"}, tempfile_postfix = ".tmp"}},
   javascript = {{cmd = {"prettier -w", "./node_modules/.bin/eslint --fix"}}},
   markdown = {
@@ -440,6 +440,9 @@ vim.api.nvim_set_keymap("n", " fc",
 vim.api.nvim_set_keymap("n", " fo",
                         [[<cmd>lua require('fzf-lua').oldfiles()<CR>]], {})
 
+vim.api.nvim_set_keymap("n", "  ",
+                        [[<cmd>bprevious<CR>]], {})
+
 vim.api.nvim_set_keymap("n", " qr",
                         [[<cmd>Reload<CR><cmd>echom "reloaded"<CR>]], {})
 
@@ -452,6 +455,9 @@ set laststatus=0
 
 highlight VertSplit cterm=none
 set nohlsearch
+
+vnoremap < <gv
+vnoremap > >gv
 
 nnoremap <silent> <C-h> :lua require('tmux').move_left()<CR>
 nnoremap <silent> <C-l> :lua require('tmux').move_right()<CR>
