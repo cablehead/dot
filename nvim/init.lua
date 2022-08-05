@@ -1,6 +1,6 @@
 require("plugins")
 
-require("config/formatter")
+require("setup/formatter")
 
 local actions = require("fzf-lua.actions")
 
