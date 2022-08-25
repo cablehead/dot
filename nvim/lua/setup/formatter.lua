@@ -1,5 +1,7 @@
 local util = require("formatter.util")
 require("formatter").setup({
+    logging = true,
+    log_level = vim.log.levels.WARN,
     filetype = {
         lua = {
             function()
@@ -31,7 +33,21 @@ require("formatter").setup({
         },
         -- go = {{cmd = {"gofmt -w", "goimports -w"}, tempfile_postfix = ".tmp"}},
         -- javascript = {{cmd = {"prettier -w", "./node_modules/.bin/eslint --fix"}}},
-        -- html = {{cmd = {"tidy -quiet --tidy-mark no -modify -indent"}}},
+        html = {
+            function()
+                return {
+                    exe = "prettier",
+                    args = {
+                        "--stdin-filepath",
+                        util.escape_path(util.get_current_buffer_file_path()),
+			"--print-width",
+			120,
+                    },
+                    stdin = true,
+                    try_node_modules = true,
+                }
+            end,
+        },
         ["*"] = {
             function()
                 -- remove trailing whitespace
