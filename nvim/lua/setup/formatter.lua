@@ -19,6 +19,7 @@ require("formatter").setup({
                 }
             end,
         },
+
         rust = {
             function()
                 return {
@@ -31,8 +32,7 @@ require("formatter").setup({
                 }
             end,
         },
-        -- go = {{cmd = {"gofmt -w", "goimports -w"}, tempfile_postfix = ".tmp"}},
-        -- javascript = {{cmd = {"prettier -w", "./node_modules/.bin/eslint --fix"}}},
+
         html = {
             function()
                 return {
@@ -40,14 +40,19 @@ require("formatter").setup({
                     args = {
                         "--stdin-filepath",
                         util.escape_path(util.get_current_buffer_file_path()),
-			"--print-width",
-			120,
+                        "--print-width",
+                        120,
                     },
                     stdin = true,
                     try_node_modules = true,
                 }
             end,
         },
+
+        typescriptreact = {
+            require("formatter.filetypes.typescriptreact").denofmt,
+        },
+
         ["*"] = {
             function()
                 -- remove trailing whitespace
