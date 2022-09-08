@@ -3,6 +3,10 @@ require("formatter").setup({
     logging = true,
     log_level = vim.log.levels.WARN,
     filetype = {
+        css = {
+            require("formatter.filetypes.css").prettier,
+        },
+
         lua = {
             function()
                 return {
@@ -14,19 +18,6 @@ require("formatter").setup({
                         "--indent-type=Spaces",
                         "--",
                         "-",
-                    },
-                    stdin = true,
-                }
-            end,
-        },
-
-        rust = {
-            function()
-                return {
-                    exe = "rustfmt",
-                    args = {
-                        "--edition",
-                        "2021",
                     },
                     stdin = true,
                 }
@@ -45,6 +36,19 @@ require("formatter").setup({
                     },
                     stdin = true,
                     try_node_modules = true,
+                }
+            end,
+        },
+
+        rust = {
+            function()
+                return {
+                    exe = "rustfmt",
+                    args = {
+                        "--edition",
+                        "2021",
+                    },
+                    stdin = true,
                 }
             end,
         },
