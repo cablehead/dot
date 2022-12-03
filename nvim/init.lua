@@ -1,7 +1,6 @@
 require("plugins")
 
 require("setup/formatter")
-require("setup/fzf-lua")
 
 vim.api.nvim_set_keymap("", "<M-p>", [[<cmd>PackerSync<CR>]], {})
 

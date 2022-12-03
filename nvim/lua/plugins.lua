@@ -7,8 +7,6 @@ return require('packer').startup(function()
 
   use 'nathom/tmux.nvim'
 
-  use {'ibhagwan/fzf-lua', requires = {'vijaymarupudi/nvim-fzf'}}
-
   use {'bfredl/nvim-luadev'}
 
   use {'mhartington/formatter.nvim'}
