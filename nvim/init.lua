@@ -6,8 +6,8 @@ vim.api.nvim_set_keymap("", "<M-p>", [[<cmd>PackerSync<CR>]], {})
 
 vim.api.nvim_set_keymap("n", "  ", [[<cmd>bprevious<CR>]], {})
 vim.api.nvim_set_keymap("n", " ff", [[<cmd>lua require('fzf-lua').files()<CR>]], {})
-vim.api.nvim_set_keymap("n", " fb", [[<cmd>lua require('fzf-lua').buffers()<CR>]], {})
-vim.api.nvim_set_keymap("n", "\\b", [[<cmd>lua require('fzf-lua').buffers()<CR>]], {})
+vim.api.nvim_set_keymap("n", " fb", [[<cmd>Telescope buffers<CR>]], {})
+vim.api.nvim_set_keymap("n", "\\b", [[<cmd>Telescope buffers<CR>]], {})
 vim.api.nvim_set_keymap("n", " fc", [[<cmd>lua require('fzf-lua').command_history()<CR>]], {})
 vim.api.nvim_set_keymap("n", " fo", [[<cmd>lua require('fzf-lua').oldfiles()<CR>]], {})
 
@@ -21,6 +21,12 @@ set laststatus=0
 
 highlight VertSplit cterm=none
 set nohlsearch
+
+" work around for blown out colors in telescope
+" which may be from a regression in nvim
+" # Broken color scheme
+"   https://github.com/nvim-telescope/telescope.nvim/issues/2145
+hi NormalFloat ctermfg=LightGrey
 
 vnoremap < <gv
 vnoremap > >gv
