@@ -4,11 +4,20 @@ require("setup/formatter")
 
 require("telescope").load_extension("file_browser")
 
+require("telescope").setup({
+    pickers = {
+        buffers = {
+            sort_mru = true,
+        },
+    },
+})
+
 vim.api.nvim_set_keymap("", "<M-p>", [[<cmd>PackerSync<CR>]], {})
 
 vim.api.nvim_set_keymap("n", "  ", [[<cmd>bprevious<CR>]], {})
 vim.api.nvim_set_keymap("n", " ff", [[<cmd>Telescope file_browser<CR>]], {})
 vim.api.nvim_set_keymap("n", " fb", [[<cmd>Telescope buffers<CR>]], {})
+vim.api.nvim_set_keymap("n", "\\b", [[<cmd>Telescope buffers<CR>]], {})
 vim.api.nvim_set_keymap("n", " fc", [[<cmd>lua require('fzf-lua').command_history()<CR>]], {})
 vim.api.nvim_set_keymap("n", " fo", [[<cmd>lua require('fzf-lua').oldfiles()<CR>]], {})
 
