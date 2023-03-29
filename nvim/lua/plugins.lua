@@ -8,6 +8,7 @@ return require("packer").startup(function()
     use("nathom/tmux.nvim")
 
     use({ "bfredl/nvim-luadev" })
+    use({ "rhaiscript/vim-rhai" })
 
     use({ "mhartington/formatter.nvim" })
 
@@ -17,4 +18,6 @@ return require("packer").startup(function()
         requires = { { "nvim-lua/plenary.nvim" } },
     })
     use({ "nvim-telescope/telescope-file-browser.nvim" })
+
+    use("github/copilot.vim")
 end)

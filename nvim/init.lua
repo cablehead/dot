@@ -27,7 +27,15 @@ vim.api.nvim_set_keymap("n", " .F", [[<cmd>w<CR><cmd>FormatWrite<CR>]], {})
 
 vim.cmd([[
 set mouse=
-set laststatus=0
+
+" always show status bar
+set laststatus=2
+set modeline
+set modelines=5
+
+" https://stackoverflow.com/a/2288438
+set smartcase
+
 
 highlight VertSplit cterm=none
 set nohlsearch
@@ -40,6 +48,15 @@ hi NormalFloat ctermfg=LightGrey
 
 vnoremap < <gv
 vnoremap > >gv
+
+autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType sh set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType go set tabstop=4|set shiftwidth=4|set noexpandtab
+autocmd FileType nginx set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType ghmarkdown set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType markdown set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType html set tabstop=2|set shiftwidth=2|set noexpandtab
+autocmd FileType lua set tabstop=2|set shiftwidth=2|set noexpandtab
 
 nnoremap <silent> <C-h> :lua require('tmux').move_left()<CR>
 nnoremap <silent> <C-l> :lua require('tmux').move_right()<CR>

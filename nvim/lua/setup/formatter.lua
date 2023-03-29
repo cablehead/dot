@@ -7,6 +7,14 @@ require("formatter").setup({
             require("formatter.filetypes.css").prettier,
         },
 
+        json = {
+            require("formatter.filetypes.json").prettier,
+        },
+
+        sh = {
+            require("formatter.filetypes.sh").shfmt,
+        },
+
         lua = {
             function()
                 return {
@@ -32,7 +40,7 @@ require("formatter").setup({
                         "--stdin-filepath",
                         util.escape_path(util.get_current_buffer_file_path()),
                         "--print-width",
-                        120,
+                        99,
                     },
                     stdin = true,
                     try_node_modules = true,
