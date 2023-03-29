@@ -18,6 +18,7 @@ export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 alias jq='jq --unbuffered'
 alias grep='grep --line-buffered'
 alias sha256='shasum --algorithm 256'
+alias curl='curl -s'
 
 # zsh specific
 zle_highlight+=(paste:none)
@@ -26,3 +27,5 @@ zle_highlight+=(paste:none)
 # https://unix.stackexchange.com/questions/562292/zsh-history-with-cursor-at-beginning-of-line
 bindkey -a j vi-down-line-or-history
 bindkey -a k vi-up-line-or-history
+
+eval "$(atuin init zsh)"
