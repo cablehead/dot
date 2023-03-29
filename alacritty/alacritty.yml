@@ -1,0 +1,84 @@
+import:
+  - /Users/andy/git/dot/alacritty/colors/railscasts.dark.yml
+
+env:
+  TERM: xterm-256color
+
+window:
+  # Values for `decorations`:
+  #     - full: Borders and title bar
+  #     - none: Neither borders nor title bar
+  #
+  # Values for `decorations` (macOS only):
+  #     - transparent: Title bar, transparent background and title bar buttons
+  #     - buttonless: Title bar, transparent background and no title bar buttons
+  decorations: buttonless
+
+  opacity: 0.98
+
+  dimensions:
+    columns: 0
+    lines: 0
+
+  # Adds this many blank pixels of padding around the window
+  # Units are physical pixels; this is not DPI aware.
+  # (change requires restart)
+  padding:
+    x: 15
+    y: 15
+
+  # Make `Option` key behave as `Alt` (macOS only):
+  #   - OnlyLeft
+  #   - OnlyRight
+  #   - Both
+  #   - None (default)
+  option_as_alt: OnlyLeft
+
+# Display tabs using this many cells (changes require restart)
+tabspaces: 4
+
+# When true, bold text is drawn using the bright variant of colors.
+draw_bold_text_with_bright_colors: true
+
+font:
+  scale_with_dpi: true
+  use_anti_alias: true
+
+  normal:
+    family: Iosevka X
+    style: Light
+
+  bold:
+    family: Iosevka X
+    style: Regular
+
+  size: 14.0
+
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+
+# Prefer resizing window by discrete steps equal to cell dimensions.
+resize_increments: true
+
+cursor:
+  style:
+    # Values for `shape`:
+    #   - ▇ Block
+    #   - _ Underline
+    #   - | Beam
+    shape: Block
+
+    # Values for `blinking`:
+    #   - Never: Prevent the cursor from ever blinking
+    #   - Off: Disable blinking by default
+    #   - On: Enable blinking by default
+    #   - Always: Force the cursor to always blink
+    blinking: On
+
+# Live config reload (changes require restart)
+live_config_reload: true
+
