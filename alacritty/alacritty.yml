@@ -1,5 +1,5 @@
 import:
-  - /Users/andy/git/dot/alacritty/colors/railscasts.dark.yml
+  - /Users/andy/git/dot/alacritty/colors.yml
 
 env:
   TERM: xterm-256color
@@ -49,7 +49,7 @@ font:
     style: Light
 
   bold:
-    family: Iosevka X
+    family: Iosevka NF
     style: Regular
 
   size: 14.0
