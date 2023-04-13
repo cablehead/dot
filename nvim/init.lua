@@ -1,15 +1,5 @@
 require("plugins")
 
-require("nvim-treesitter.configs").setup({
-    ensure_installed = { "rust", "lua", "svelte", "css", "html", "kdl" },
-    sync_install = true,
-    auto_install = false,
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-    },
-})
-
 require("telescope").load_extension("file_browser")
 
 require("telescope").setup({
