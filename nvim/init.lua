@@ -1,5 +1,11 @@
 require("plugins")
 
+require("plugin/lsp")
+require("plugin/treesitter")
+require("plugin/formatter")
+
+require("config/set")
+
 require("telescope").load_extension("file_browser")
 
 require("telescope").setup({
@@ -35,7 +41,6 @@ set modelines=5
 set smartcase
 
 highlight VertSplit cterm=none
-set nohlsearch
 
 " work around for blown out colors in telescope
 " which may be from a regression in nvim
