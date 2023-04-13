@@ -1,6 +1,16 @@
 require("plugins")
 
--- require("setup/formatter")
+require("setup/formatter")
+
+require("nvim-treesitter.configs").setup({
+    ensure_installed = { "rust", "lua", "svelte", "css", "html", "kdl" },
+    sync_install = true,
+    auto_install = false,
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
+})
 
 require("telescope").load_extension("file_browser")
 
@@ -15,11 +25,11 @@ require("telescope").setup({
 vim.api.nvim_set_keymap("", "<M-p>", [[<cmd>PackerSync<CR>]], {})
 
 vim.api.nvim_set_keymap("n", "  ", [[<cmd>bprevious<CR>]], {})
-vim.api.nvim_set_keymap("n", " ff", [[<cmd>Telescope file_browser<CR>]], {})
-vim.api.nvim_set_keymap("n", " fb", [[<cmd>Telescope buffers<CR>]], {})
+
 vim.api.nvim_set_keymap("n", "\\b", [[<cmd>Telescope buffers<CR>]], {})
-vim.api.nvim_set_keymap("n", " fc", [[<cmd>lua require('fzf-lua').command_history()<CR>]], {})
-vim.api.nvim_set_keymap("n", " fo", [[<cmd>lua require('fzf-lua').oldfiles()<CR>]], {})
+vim.api.nvim_set_keymap("n", " fb", [[<cmd>Telescope buffers<CR>]], {})
+vim.api.nvim_set_keymap("n", " ff", [[<cmd>Telescope file_browser<CR>]], {})
+vim.api.nvim_set_keymap("n", " fo", [[<cmd>Telescope oldfiles<CR>]], {})
 
 vim.api.nvim_set_keymap("n", " qr", [[<cmd>Reload<CR><cmd>echom "reloaded"<CR>]], {})
 vim.api.nvim_set_keymap("n", " .f", [[<cmd>w<CR><cmd>Format<CR>]], {})

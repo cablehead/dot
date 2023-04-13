@@ -10,13 +10,22 @@ return require("packer").startup(function()
     -- use({ "bfredl/nvim-luadev" })
     -- use({ "rhaiscript/vim-rhai" })
 
-    -- use({ "mhartington/formatter.nvim" })
+    use({ "mhartington/formatter.nvim" })
+
+    use({
+        "nvim-treesitter/nvim-treesitter",
+        run = function()
+            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+            ts_update()
+        end,
+    })
 
     use({
         "nvim-telescope/telescope.nvim",
         tag = "0.1.0",
         requires = { { "nvim-lua/plenary.nvim" } },
     })
+
     use({ "nvim-telescope/telescope-file-browser.nvim" })
 
     -- use("github/copilot.vim")
