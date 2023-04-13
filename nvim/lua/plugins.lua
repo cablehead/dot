@@ -5,12 +5,12 @@ return require("packer").startup(function()
     use("nvim-lua/plenary.nvim")
     use("famiu/nvim-reload")
 
-    use("nathom/tmux.nvim")
+    -- use("nathom/tmux.nvim")
 
-    use({ "bfredl/nvim-luadev" })
-    use({ "rhaiscript/vim-rhai" })
+    -- use({ "bfredl/nvim-luadev" })
+    -- use({ "rhaiscript/vim-rhai" })
 
-    use({ "mhartington/formatter.nvim" })
+    -- use({ "mhartington/formatter.nvim" })
 
     use({
         "nvim-telescope/telescope.nvim",
@@ -19,5 +19,5 @@ return require("packer").startup(function()
     })
     use({ "nvim-telescope/telescope-file-browser.nvim" })
 
-    use("github/copilot.vim")
+    -- use("github/copilot.vim")
 end)

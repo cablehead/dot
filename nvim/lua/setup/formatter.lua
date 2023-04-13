@@ -11,6 +11,10 @@ require("formatter").setup({
             require("formatter.filetypes.json").prettier,
         },
 
+        svelte = {
+            require("formatter.filetypes.svelte").prettier,
+        },
+
         sh = {
             require("formatter.filetypes.sh").shfmt,
         },

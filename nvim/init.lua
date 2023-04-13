@@ -1,6 +1,6 @@
 require("plugins")
 
-require("setup/formatter")
+-- require("setup/formatter")
 
 require("telescope").load_extension("file_browser")
 
@@ -36,7 +36,6 @@ set modelines=5
 " https://stackoverflow.com/a/2288438
 set smartcase
 
-
 highlight VertSplit cterm=none
 set nohlsearch
 
@@ -58,11 +57,6 @@ autocmd FileType markdown set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType html set tabstop=2|set shiftwidth=2|set noexpandtab
 autocmd FileType lua set tabstop=2|set shiftwidth=2|set noexpandtab
 
-nnoremap <silent> <C-h> :lua require('tmux').move_left()<CR>
-nnoremap <silent> <C-l> :lua require('tmux').move_right()<CR>
-nnoremap <silent> <C-j> :lua require('tmux').move_down()<CR>
-nnoremap <silent> <C-k> :lua require('tmux').move_up()<CR>
-
 set statusline=%<%f                            " path to file
 set statusline+=\ [%{&ff}]                     " space + fileformat
 set statusline+=%y                             " filetype
@@ -73,12 +67,20 @@ set statusline+=%=                             " switch to the right side
 set statusline+=%-14.(%l,%c%)                  " current line,col
 set statusline+=\ %L                           " total number of lines
 
+"
+" tmux related config, TODO: replace with zellij
+"
+" nnoremap <silent> <C-h> :lua require('tmux').move_left()<CR>
+" nnoremap <silent> <C-l> :lua require('tmux').move_right()<CR>
+" nnoremap <silent> <C-j> :lua require('tmux').move_down()<CR>
+" nnoremap <silent> <C-k> :lua require('tmux').move_up()<CR>
+
 " http://ricostacruz.com/til/repeat-tmux-from-vim.html
 " run up enter in the last tmux pane used
-function! s:TmuxRepeat()
-    let x = system("tmux select-pane -l && tmux send up enter && tmux select-pane -l")
-endfunction
-noremap  <C-i> :w<CR>:call <SID>TmuxRepeat()<CR>
+" function! s:TmuxRepeat()
+    " let x = system("tmux select-pane -l && tmux send up enter && tmux select-pane -l")
+" endfunction
+" noremap  <C-i> :w<CR>:call <SID>TmuxRepeat()<CR>
 ]])
 
 local reload = require("nvim-reload")
@@ -87,11 +89,7 @@ local reload = require("nvim-reload")
 -- Or a plugin manager that uses it (eg: packer.nvim)
 local plugin_dirs = vim.fn.stdpath("data") .. "/site/pack/*/start/*"
 
--- If you use vim-plug
--- local plugin_dirs = vim.fn.stdpath('data') .. '/plugged/*'
-
 reload.vim_reload_dirs = { vim.fn.stdpath("config"), plugin_dirs }
-
 reload.lua_reload_dirs = {
     vim.fn.stdpath("config"),
     -- Note: the line below may cause issues reloading your config
