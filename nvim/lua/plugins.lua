@@ -28,6 +28,7 @@ return require("packer").startup(function()
 
     use({ "nvim-telescope/telescope-file-browser.nvim" })
 
+		--[[
     use({
         "VonHeikemen/lsp-zero.nvim",
         branch = "v2.x",
@@ -48,6 +49,7 @@ return require("packer").startup(function()
             { "L3MON4D3/LuaSnip" }, -- Required
         },
     })
+		--]]
 
     -- use("github/copilot.vim")
 end)

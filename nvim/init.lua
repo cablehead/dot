@@ -1,6 +1,6 @@
 require("plugins")
 
-require("plugin/lsp")
+-- require("plugin/lsp")
 require("plugin/treesitter")
 require("plugin/formatter")
 
