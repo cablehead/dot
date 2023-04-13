@@ -1,7 +1,5 @@
 require("plugins")
 
-require("setup/formatter")
-
 require("nvim-treesitter.configs").setup({
     ensure_installed = { "rust", "lua", "svelte", "css", "html", "kdl" },
     sync_install = true,
