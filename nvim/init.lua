@@ -23,7 +23,13 @@ vim.api.nvim_set_keymap("n", "  ", [[<cmd>bprevious<CR>]], {})
 vim.api.nvim_set_keymap("n", "\\b", [[<cmd>Telescope buffers<CR>]], {})
 vim.api.nvim_set_keymap("n", " fb", [[<cmd>Telescope buffers<CR>]], {})
 vim.api.nvim_set_keymap("n", " ff", [[<cmd>Telescope file_browser<CR>]], {})
+vim.api.nvim_set_keymap("n", " fa", [[<cmd>Telescope git_files<CR>]], {})
 vim.api.nvim_set_keymap("n", " fo", [[<cmd>Telescope oldfiles<CR>]], {})
+
+-- copy to system clipboard
+vim.api.nvim_set_keymap("", " cc", [["+y]], {})
+vim.api.nvim_set_keymap("", " co", [[<cmd>new | execute 'r !pbpaste' | setlocal buftype=nofile<CR>]], {})
+vim.api.nvim_set_keymap("", " cv", [[<cmd>vnew | execute 'r !pbpaste' | setlocal buftype=nofile<CR>]], {})
 
 vim.api.nvim_set_keymap("n", " qr", [[<cmd>Reload<CR><cmd>echom "reloaded"<CR>]], {})
 vim.api.nvim_set_keymap("n", " .f", [[<cmd>w<CR><cmd>Format<CR>]], {})
@@ -73,10 +79,10 @@ set statusline+=\ %L                           " total number of lines
 "
 " tmux related config, TODO: replace with zellij
 "
-" nnoremap <silent> <C-h> :lua require('tmux').move_left()<CR>
-" nnoremap <silent> <C-l> :lua require('tmux').move_right()<CR>
-" nnoremap <silent> <C-j> :lua require('tmux').move_down()<CR>
-" nnoremap <silent> <C-k> :lua require('tmux').move_up()<CR>
+nnoremap <silent> <C-h> :lua require('tmux').move_left()<CR>
+nnoremap <silent> <C-l> :lua require('tmux').move_right()<CR>
+nnoremap <silent> <C-j> :lua require('tmux').move_down()<CR>
+nnoremap <silent> <C-k> :lua require('tmux').move_up()<CR>
 
 " http://ricostacruz.com/til/repeat-tmux-from-vim.html
 " run up enter in the last tmux pane used
