@@ -65,8 +65,16 @@ require("formatter").setup({
             end,
         },
 
+        javascriptreact = {
+            require("formatter.filetypes.javascriptreact").denofmt,
+        },
+
         typescriptreact = {
             require("formatter.filetypes.typescriptreact").denofmt,
+        },
+
+        typescript = {
+            require("formatter.filetypes.typescript").denofmt,
         },
 
         ["*"] = {
