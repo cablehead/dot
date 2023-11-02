@@ -16,7 +16,7 @@ require("telescope").setup({
     },
 })
 
-vim.api.nvim_set_keymap("", "<M-p>", [[<cmd>PackerSync<CR>]], {})
+-- vim.api.nvim_set_keymap("", "<M-p>", [[<cmd>PackerSync<CR>]], {})
 
 vim.api.nvim_set_keymap("n", "  ", [[<cmd>bprevious<CR>]], {})
 
