@@ -2,13 +2,13 @@ return require("packer").startup(function()
     -- Packer can manage itself
     use("wbthomason/packer.nvim")
 
+    use("EdenEast/nightfox.nvim")
+
     use("nvim-lua/plenary.nvim")
+
     use("famiu/nvim-reload")
 
     use("nathom/tmux.nvim")
-
-    -- use({ "bfredl/nvim-luadev" })
-    -- use({ "rhaiscript/vim-rhai" })
 
     use({ "mhartington/formatter.nvim" })
 
@@ -28,7 +28,9 @@ return require("packer").startup(function()
 
     use({ "nvim-telescope/telescope-file-browser.nvim" })
 
-		use('neovim/nvim-lspconfig')
+    use("neovim/nvim-lspconfig")
 
     -- use("github/copilot.vim")
+    -- use({ "bfredl/nvim-luadev" })
+    -- use({ "rhaiscript/vim-rhai" })
 end)
