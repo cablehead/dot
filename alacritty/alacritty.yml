@@ -1,8 +1,8 @@
-import:
-  - /Users/andy/git/dot/alacritty/colors.yml
-
 env:
   TERM: xterm-256color
+
+import:
+  - /Users/andy/git/dot/alacritty/colors.yml
 
 window:
   # Values for `decorations`:
@@ -24,8 +24,8 @@ window:
   # Units are physical pixels; this is not DPI aware.
   # (change requires restart)
   padding:
-    x: 15
-    y: 15
+    x: 10
+    y: 10
 
   # Make `Option` key behave as `Alt` (macOS only):
   #   - OnlyLeft
@@ -45,14 +45,14 @@ font:
   use_anti_alias: true
 
   normal:
-    family: Iosevka X
+    family: Iosevka NF
     style: Light
 
   bold:
     family: Iosevka NF
     style: Regular
 
-  size: 14.0
+  size: 13.0
 
   offset:
     x: 0
