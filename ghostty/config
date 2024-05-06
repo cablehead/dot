@@ -1,4 +1,6 @@
-window-decoration = false
-font-size = 14
-font-family = Iosevka NF
-theme = nord
+window-decoration       = false
+window-padding-x        = 10
+window-padding-y        = 10
+font-size               = 14
+font-family             = Iosevka NF
+theme                   = nord
