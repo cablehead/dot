@@ -7,6 +7,22 @@ require("formatter").setup({
             require("formatter.filetypes.css").prettier,
         },
 
+        scss = {
+            function()
+                return {
+                    exe = "prettier",
+                    args = {
+                        "--stdin-filepath",
+                        util.escape_path(util.get_current_buffer_file_path()),
+                        "--print-width",
+                        99,
+                    },
+                    stdin = true,
+                    try_node_modules = true,
+                }
+            end,
+        },
+
         json = {
             require("formatter.filetypes.json").prettier,
         },
@@ -75,6 +91,10 @@ require("formatter").setup({
 
         typescript = {
             require("formatter.filetypes.typescript").denofmt,
+        },
+
+        markdown = {
+            require("formatter.filetypes.markdown").denofmt,
         },
 
         ["*"] = {

@@ -28,8 +28,6 @@ return require("packer").startup(function()
 
     use({ "nvim-telescope/telescope-file-browser.nvim" })
 
-    use("neovim/nvim-lspconfig")
-
     -- use("github/copilot.vim")
     -- use({ "bfredl/nvim-luadev" })
     -- use({ "rhaiscript/vim-rhai" })
