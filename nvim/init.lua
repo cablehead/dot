@@ -17,6 +17,12 @@ require("telescope").setup({
     },
 })
 
+vim.filetype.add({
+    extension = {
+        nu = "nu",
+    },
+})
+
 -- vim.api.nvim_set_keymap("", "<M-p>", [[<cmd>PackerSync<CR>]], {})
 
 vim.api.nvim_set_keymap("n", "  ", [[<cmd>bprevious<CR>]], {})
@@ -68,6 +74,7 @@ autocmd FileType ghmarkdown set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType markdown set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType html set tabstop=2|set shiftwidth=2|set noexpandtab
 autocmd FileType lua set tabstop=2|set shiftwidth=2|set noexpandtab
+autocmd FileType nu set tabstop=2|set shiftwidth=2|set expandtab
 
 set statusline=%<%f                            " path to file
 set statusline+=\ [%{&ff}]                     " space + fileformat
