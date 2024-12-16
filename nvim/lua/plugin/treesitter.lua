@@ -1,5 +1,5 @@
 require("nvim-treesitter.configs").setup({
-    ensure_installed = { "rust", "lua", "svelte", "css", "html", "kdl", "javascript", "typescript" },
+    ensure_installed = { "rust", "lua", "svelte", "css", "html", "kdl", "javascript", "typescript", "nu" },
     sync_install = true,
     auto_install = false,
     highlight = {

@@ -85,6 +85,10 @@ require("formatter").setup({
             require("formatter.filetypes.javascriptreact").denofmt,
         },
 
+        javascript = {
+            require("formatter.filetypes.javascript").denofmt,
+        },
+
         typescriptreact = {
             require("formatter.filetypes.typescriptreact").denofmt,
         },
@@ -95,6 +99,20 @@ require("formatter").setup({
 
         markdown = {
             require("formatter.filetypes.markdown").denofmt,
+        },
+
+        nu = {
+            function()
+                return {
+                    exe = "topiary",
+                    args = {
+                        "format",
+                        "-l",
+                        "nu",
+                    },
+                    stdin = true,
+                }
+            end,
         },
 
         ["*"] = {
