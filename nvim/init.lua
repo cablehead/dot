@@ -119,3 +119,53 @@ reload.lua_reload_dirs = {
     -- Note: the line below may cause issues reloading your config
     plugin_dirs,
 }
+
+-- XS store integration
+function _G.open_xs_file(filename)
+    local ft = vim.fn.fnamemodify(filename, ":e")
+
+    local handle = io.popen("xs head ./store/ " .. vim.fn.shellescape(filename))
+    local exists = handle:read("*a")
+    handle:close()
+
+    if vim.fn.winnr("$") == 1 and vim.fn.expand("%") == "" and vim.fn.line("$") == 1 and vim.fn.getline(1) == "" then
+        if exists ~= "" then
+            vim.cmd(
+                "read !xs head ./store/ "
+                    .. vim.fn.shellescape(filename)
+                    .. " | jq -r .hash | xargs -I {} xs cas ./store/ {}"
+            )
+            vim.cmd("normal ggdd")
+        end
+    else
+        vim.cmd("enew")
+        if exists ~= "" then
+            vim.cmd(
+                "read !xs head ./store/ "
+                    .. vim.fn.shellescape(filename)
+                    .. " | jq -r .hash | xargs -I {} xs cas ./store/ {}"
+            )
+            vim.cmd("normal ggdd")
+        end
+    end
+
+    vim.cmd("file xs://" .. filename)
+    vim.cmd("set filetype=" .. ft)
+    vim.cmd("set nomodified")
+
+    local save_cmd = "silent w !xs append ./store " .. vim.fn.shellescape(filename) .. " >/dev/null"
+    vim.keymap.set("n", ":w<CR>", function()
+        vim.cmd(save_cmd)
+        vim.cmd("set nomodified")
+    end, { buffer = true })
+
+    vim.keymap.set("n", ":wq<CR>", function()
+        vim.cmd(save_cmd)
+        vim.cmd("set nomodified")
+        vim.cmd("q")
+    end, { buffer = true })
+end
+
+vim.api.nvim_create_user_command("XS", function(args)
+    _G.open_xs_file(args.args)
+end, { nargs = 1 })
