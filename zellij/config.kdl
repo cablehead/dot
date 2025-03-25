@@ -8,17 +8,18 @@ keybinds clear-defaults=true {
         bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
         bind "Alt j" "Alt Down" { MoveFocus "Down"; }
         bind "Alt k" "Alt Up" { MoveFocus "Up"; }
-        bind "Alt 1" { GoToTab 1; }
-        bind "Alt 2" { GoToTab 2; }
-        bind "Alt 3" { GoToTab 3; }
-        bind "Alt 4" { GoToTab 4; }
-        bind "Alt 5" { GoToTab 5; }
-        bind "Alt 6" { GoToTab 6; }
-        bind "Alt 7" { GoToTab 7; }
-        bind "Alt 8" { GoToTab 8; }
-        bind "Alt 9" { GoToTab 9; }
-        bind "Alt t" { ToggleTab; }
+        bind "Ctrl 1" { GoToTab 1; }
+        bind "Ctrl 2" { GoToTab 2; }
+        bind "Ctrl 3" { GoToTab 3; }
+        bind "Ctrl 4" { GoToTab 4; }
+        bind "Ctrl 5" { GoToTab 5; }
+        bind "Ctrl 6" { GoToTab 6; }
+        bind "Ctrl 7" { GoToTab 7; }
+        bind "Ctrl 8" { GoToTab 8; }
+        bind "Ctrl 9" { GoToTab 9; }
+        bind "Ctrl t" { ToggleTab; }
         bind "Alt o" { ToggleFocusFullscreen; }
+        bind "Ctrl o" { ToggleFocusFullscreen; }
     }
 
     normal {
@@ -58,7 +59,7 @@ keybinds clear-defaults=true {
         bind "," { SwitchToMode "RenamePane"; PaneNameInput 0;}
     }
     move {
-        bind "Ctrl h" { SwitchToMode "Normal"; }
+        bind "Ctrl v" { SwitchToMode "Normal"; }
         bind "n" "Tab" { MovePane; }
         bind "p" { MovePaneBackwards; }
         bind "h" "Left" { MovePane "Left"; }
@@ -147,7 +148,7 @@ keybinds clear-defaults=true {
         bind "Ctrl t" { SwitchToMode "Tab"; }
     }
     shared_except "move" "locked" {
-        bind "Ctrl h" { SwitchToMode "Move"; }
+        bind "Ctrl v" { SwitchToMode "Move"; }
     }
 }
 
@@ -158,7 +159,7 @@ plugins {
     compact-bar { path "compact-bar"; }
 }
 
-// default_shell "/Users/andy/bin/new-pane.sh"
+default_shell "/Users/andy/bin/new-pane.sh"
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
 // eg. when terminal window with an active zellij session is closed
@@ -217,7 +218,7 @@ theme "nord"
 // The name of the default layout to load on startup
 // Default: "default"
 //
-default_layout "/Users/andy/git/dot/zellij/layout.kdl"
+// default_layout "/Users/andy/git/dot/zellij/layout.kdl"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
@@ -239,7 +240,7 @@ default_layout "/Users/andy/git/dot/zellij/layout.kdl"
 // Valid values: positive integers
 // Default value: 10000
 //
-// scroll_buffer_size 10000
+scroll_buffer_size 1000
 
 // Provide a command to execute when copying text. The text will be piped to
 // the stdin of the program to perform the copy. This can be used with
